@@ -185,7 +185,7 @@
       <div id="candle">
         <div id="flame" onclick="blowCandle()">🔥</div>
       </div>
-      <p id="wish-text">Make a wish & blow the candle 🕯️</p>
+      <p id="wish-text">Make a wish & blow(click) the candle 🕯️</p>
     </div>
 
     <p>
@@ -242,7 +242,7 @@
       for (let i = 0; i < 40; i++) {
         const c = document.createElement("div");
         c.className = "confetti";
-        c.innerHTML = ["🎉", "🎂", "🎈", "❤️", "✨", "💋", "🎀"][Math.floor(Math.random() * 5)];
+        c.innerHTML = ["🎉", "🎂", "🎈", "❤️", "✨", "💋", "🎀"][Math.floor(Math.random() * 7)];
         c.style.left = Math.random() * 100 + "vw";
         c.style.animationDuration = (2 + Math.random() * 2) + "s";
         document.body.appendChild(c);
