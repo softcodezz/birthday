@@ -1,256 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #fbc8d4, #c6dbf7);
-      font-family: 'Segoe UI', sans-serif;
-      color: #4a4a4a;
-      overflow: hidden;
-      padding: 20px;
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fbc8d4, #c6dbf7);
+    font-family: 'Segoe UI', sans-serif;
+    color: #4a4a4a;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .box {
+    background: rgba(255,255,255,0.85);
+    padding: 32px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    color: #ff6f91;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* Countdown */
+  #countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .time-box {
+    background: #ffe4ec;
+    padding: 12px 16px;
+    border-radius: 16px;
+    min-width: 75px;
+  }
+
+  .time-box span {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ff6f91;
+  }
+
+  .time-box small {
+    font-size: 0.8rem;
+  }
+
+  /* Candle */
+  #candle-area {
+    margin: 25px 0;
+    display: none;
+  }
+
+  #candle {
+    width: 22px;
+    height: 65px;
+    background: #ffd6a5;
+    margin: 0 auto;
+    border-radius: 6px;
+    position: relative;
+  }
+
+  #flame {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    cursor: pointer;
+    animation: flicker 1s infinite;
+  }
+
+  @keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.15); }
+    100% { transform: translateX(-50%) scale(1); }
+  }
+
+  #wish-text {
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    top: -10px;
+    font-size: 22px;
+    animation: fall 3s linear forwards;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
     }
-
-    .box {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 32px;
-      border-radius: 24px;
-      text-align: center;
-      max-width: 520px;
-      width: 100%;
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
-      backdrop-filter: blur(6px);
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 2.6rem);
-      margin-bottom: 6px;
-      color: #ff6f91;
-    }
-
-    h2 {
-      font-weight: 400;
-      margin-bottom: 18px;
-      color: #6a7ba2;
-    }
-
-    p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-
-    /* ⏳ Countdown */
-    #countdown {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 20px 0 25px;
-      flex-wrap: wrap;
-    }
-
-    .time-box {
-      background: #ffe4ec;
-      padding: 12px 16px;
-      border-radius: 16px;
-      min-width: 75px;
-    }
-
-    .time-box span {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #ff6f91;
-    }
-
-    .time-box small {
-      font-size: 0.8rem;
-      color: #777;
-    }
-
-    /* 🕯️ Candle */
-    #candle-area {
-      margin: 25px 0;
-    }
-
-    #candle {
-      width: 22px;
-      height: 65px;
-      background: #ffd6a5;
-      margin: 0 auto;
-      border-radius: 6px;
-      position: relative;
-    }
-
-    #flame {
-      position: absolute;
-      top: -32px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 30px;
-      cursor: pointer;
-      animation: flicker 1s infinite;
-    }
-
-    @keyframes flicker {
-      0% {
-        transform: translateX(-50%) scale(1);
-      }
-
-      50% {
-        transform: translateX(-50%) scale(1.15);
-      }
-
-      100% {
-        transform: translateX(-50%) scale(1);
-      }
-    }
-
-    #wish-text {
-      font-size: 0.9rem;
-      margin-top: 8px;
-      color: #6a7ba2;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 14px 30px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      color: #fff;
-      transition: transform 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    /* 🎉 Confetti */
-    .confetti {
-      position: fixed;
-      top: -10px;
-      font-size: 22px;
-      animation: fall 3s linear forwards;
-      pointer-events: none;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 
 <body>
 
-  <div class="box">
-    <h1>Happy Birthday baby❤️</h1>
+<div class="box">
+  <!-- TITLE -->
+  <h1 id="title-text">It's your birthday soon! ❤️</h1>
 
-    <!-- ⏳ COUNTDOWN -->
-    <div id="countdown">
-      <div class="time-box">
-        <span id="days">00</span>
-        <small>Days</small>
-      </div>
-      <div class="time-box">
-        <span id="hours">00</span>
-        <small>Hours</small>
-      </div>
-      <div class="time-box">
-        <span id="minutes">00</span>
-        <small>Minutes</small>
-      </div>
-      <div class="time-box">
-        <span id="seconds">00</span>
-        <small>Seconds</small>
-      </div>
-    </div>
-
-    <!-- 🕯️ Candle -->
-    <div id="candle-area">
-      <div id="candle">
-        <div id="flame" onclick="blowCandle()">🔥</div>
-      </div>
-      <p id="wish-text">Make a wish & blow(click) the candle 🕯️</p>
-    </div>
-
-    <p>
-      Pirandhadhuku nandri😭🎀
-    </p>
-
-    <button onclick="celebrate()">Celebrate 🎉</button>
+  <!-- Countdown -->
+  <div id="countdown">
+    <div class="time-box"><span id="days">00</span><small>Days</small></div>
+    <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
+    <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
+    <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
   </div>
 
-  <script>
+  <!-- Message -->
+  <div id="final-message"></div>
 
-    const birthdayDate = new Date("2026-01-31T00:00:00");
+  <!-- Candle -->
+  <div id="candle-area">
+    <div id="candle">
+      <div id="flame" onclick="blowCandle()">🔥</div>
+    </div>
+    <p id="wish-text">Make a wish & blow (click) the candle 🕯️</p>
+  </div>
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = birthdayDate - now;
+  <!-- Celebrate Button -->
+  <button onclick="celebrate()">Celebrate 🎉</button>
+</div>
 
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = `
-        <h2 style="color:#ff6f91;">HAPPY BIRTHDAY LOVE 🎀</h2>
-        <p style="margin-top:10px;">
-          The wait is finally over 🥹💖 Hopefully we get to spend all of your upcoming birthdays together!<br>
+<script>
+  const birthdayDate = new Date("2026-01-31T00:00:00");
+
+  let autoConfettiCount = 0;
+  let autoConfettiStarted = false;
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = birthdayDate - now;
+
+    if (diff <= 0) {
+      // CHANGE TITLE
+      document.getElementById("title-text").textContent =
+        "Happy Birthday love 😘";
+
+      // HIDE COUNTDOWN
+      document.getElementById("countdown").style.display = "none";
+
+      // SHOW MESSAGE
+      document.getElementById("final-message").innerHTML = `
+        <p>
+          Pirandhadhuku nandri 😭🎀<br>
+          Hopefully we get to spend all of your upcoming birthdays together 🥹💖
         </p>
       `;
-        celebrate();
+
+      // SHOW CANDLE
+      document.getElementById("candle-area").style.display = "block";
+
+      // AUTO CONFETTI (ONCE)
+      if (!autoConfettiStarted) {
+        autoConfettiStarted = true;
+        startAutoConfetti();
+      }
+      return;
+    }
+
+    document.getElementById("days").textContent =
+      Math.floor(diff / (1000*60*60*24));
+    document.getElementById("hours").textContent =
+      Math.floor((diff / (1000*60*60)) % 24);
+    document.getElementById("minutes").textContent =
+      Math.floor((diff / (1000*60)) % 60);
+    document.getElementById("seconds").textContent =
+      Math.floor((diff / 1000) % 60);
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  /* Auto confetti — limited to 10 */
+  function startAutoConfetti() {
+    const interval = setInterval(() => {
+      if (autoConfettiCount >= 10) {
+        clearInterval(interval);
         return;
       }
+      createConfetti();
+      autoConfettiCount++;
+    }, 300);
+  }
 
-      document.getElementById("days").textContent =
-        Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").textContent =
-        Math.floor((diff / (1000 * 60 * 60)) % 24);
-      document.getElementById("minutes").textContent =
-        Math.floor((diff / (1000 * 60)) % 60);
-      document.getElementById("seconds").textContent =
-        Math.floor((diff / 1000) % 60);
+  /* Celebrate button — unlimited */
+  function celebrate() {
+    for (let i = 0; i < 30; i++) {
+      createConfetti();
     }
+  }
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+  function createConfetti() {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.innerHTML = ["🎉","🎂","🎈","❤️","✨","💋","🎀"][Math.floor(Math.random()*7)];
+    c.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 4000);
+  }
 
-    function blowCandle() {
-      const flame = document.getElementById("flame");
-      const text = document.getElementById("wish-text");
+  function blowCandle() {
+    const flame = document.getElementById("flame");
+    const text = document.getElementById("wish-text");
 
-      if (flame) {
-        flame.remove();
-        text.innerHTML = "Kadavul kitta solliruken...wish eh niravethiruvaaru! Don't worry!";
-        celebrate();
-      }
+    if (flame) {
+      flame.remove();
+      text.innerHTML =
+        "Kadavul kitta solliruken... wish eh niravethiruvaaru! Don't worry!";
     }
-
-    function celebrate() {
-      for (let i = 0; i < 40; i++) {
-        const c = document.createElement("div");
-        c.className = "confetti";
-        c.innerHTML = ["🎉", "🎂", "🎈", "❤️", "✨", "💋", "🎀"][Math.floor(Math.random() * 7)];
-        c.style.left = Math.random() * 100 + "vw";
-        c.style.animationDuration = (2 + Math.random() * 2) + "s";
-        document.body.appendChild(c);
-        setTimeout(() => c.remove(), 4000);
-      }
-    }
-  </script>
+  }
+</script>
 
 </body>
-
 </html>
